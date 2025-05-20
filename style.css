@@ -21,52 +21,34 @@ html, body {
 
 .wrapper {
   display: grid;
-  grid-template-columns: minmax(80px, 10vw) 1fr;
   grid-template-rows: auto 1fr;
-  grid-template-areas: 
-  "sidebar header"
-  "sidebar container";
   height: 100vh;
 }
 
 .header {
-  grid-area: header;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
   height: clamp(50px, 10vh, 120px);
   background-color: rgb(255, 255, 255);
   box-shadow: var(--shadow-soft);
-  margin-bottom: 1vh;
-}
-
-.header h1 {
+  padding: 10px;
   font-size: clamp(1.5rem, 4vw, 3rem);
-}
-
-.sidebar {
-  grid-area: sidebar;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: rgb(181, 181, 255);
- 
+  font-weight: 600;
 }
 
 ul,
 li {
   list-style: none;
+  padding: 5px;
 }
 
 .container {
   background-color: rgb(255, 255, 255);
   padding: 20px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(3, 1fr);
-  grid-area: container;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px
-
 }
 
 .container > * {
@@ -76,19 +58,49 @@ li {
   box-shadow: var(--shadow-soft);
 }
 
-.habit-container {
+h2 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 500;
+  margin-bottom: 1vh;
+}
 
+.habit-container {
+  display: grid;
+  text-align: center;
+  padding: 5px;
+}
+
+.habit-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
 }
 
 .mood-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: clamp(80px, 15vh, 180px);
+}
 
+.mood-selector {
+  gap: 10px;
+}
+
+.mood-selector label {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.mood-selector input {
+  display: none;
 }
 
 .affirm-container {
 }
 
 .graph-container {
-  grid-column: span 2;
 }
 
 .gratitude-container {
