@@ -1,15 +1,29 @@
+@font-face {
+    font-family: 'Manrope';
+    src: url('fonts/Manrope-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
-  --primary-color: #ff6b6b;
-  --accent-color: #ffd93d;
-  --bg-color: #1a1a1a;
-  --text-color: #ffffff;
+  --main-font: 'Manrope', sans-serif;
+
+  --primary-clr: #d16a5a;
+  --secondary-clr: #193a39;
+  --accent-clr: #f4c430;
+  --scd-accent-clr: #3ddad7;
+  --bg-clr: #0f2b2a; /*background clr*/
+  --text-clr: #ffffff;
 
   --shadow-soft:
     0 1px 2px rgba(0, 0, 0, 0.06),
     0 4px 8px rgba(0, 0, 0, 0.1);
 
-  --sm-padding: 10px;
+  --sm-padding: 20px;
   --lg-gap: 20px;
+
+  --border-soft: 0.5rem;
 
 }
 
@@ -31,18 +45,18 @@ html, body {
   grid-template-columns: auto 1fr;
   grid-template-rows: auto 1fr;
   height: 100vh;
+  font-family: var(--main-font);
 }
 
 .header {
   grid-area: header;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   height: clamp(50px, 10vh, 120px);
   background-color: rgb(255, 255, 255);
-  box-shadow: var(--shadow-soft);
-  padding: 10px;
-  font-size: clamp(1.5rem, 4vw, 3rem);
+  padding: 0 4vh;
+  font-size: 1.2rem;
   font-weight: 600;
 }
 
@@ -79,14 +93,14 @@ html, body {
 
 .main-left {
   grid-column: 1 / 2;
-  display:grid;
-  grid-template-columns: 2fr 1fr;
+  display: grid;
+  grid-template-columns: auto auto auto;
   grid-template-rows: min-content min-content 1fr 1fr;
   grid-template-areas:
-    "task timer"
-    "quote timer"
-    "habit habit"
-    "graph graph";
+    "date task timer"
+    "quote quote timer"
+    "habit habit habit"
+    "graph graph graph";
   gap: var(--lg-gap)
 }
 
@@ -100,19 +114,35 @@ html, body {
 .main-left > *,
 .main-right > * {
   background-color: rgb(255, 255, 255);
-  border-radius: 10px;
+  border-radius: var(--border-soft);
   box-shadow: var(--shadow-soft);
   padding: var(--sm-padding);
 }
 
 h2 {
-  font-size: clamp(1.2rem, 3vw, 1.7rem);
+  font-size: clamp(1.2rem, 3vh, 1.7rem);
   font-weight: 500;
+}
+
+.date-container {
+  grid-area: date;
+}
+
+.date {
+  font-size: 2rem;
+}
+
+.weekday,
+.month {
+  font-size: 1rem;
+}
+
+.date-quote {
+  margin-top: 1rem;
 }
 
 .task-container {
   grid-area: task;
-
 }
 
 .task-container ul {
@@ -121,12 +151,93 @@ h2 {
   margin: 0;
 }
 
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+.task-item input {
+  display: none;
+}
+
+.task-item span {
+  border-radius: 0.4rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.task-item input:checked + span {
+}
+
+.task-item span::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 16px;
+  border: solid rgb(55, 0, 255);
+  border-width: 0 2px 2px 0;
+  transform: translate(-50%, -50%) rotate(45deg);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.task-item input:checked + span::after {
+  opacity: 1;
+}
+
 .quote {
   grid-area: quote;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.quote p:last-child {
+  text-align: end;
+  font-size: 1rem;
+  padding-right: 2rem;
 }
 
 .timer-container {
   grid-area: timer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.countdown {
+  font-size: 3rem;
+  margin: 0.5rem 0;
+}
+
+.timer-container label {
+  font-size: 1rem;
+  margin: 0.25rem 0;
+}
+
+.timer-container input {
+  border-radius: var(--border-soft);
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  box-sizing: border-box;
+  background-color: aliceblue;
+}
+
+.timer-buttons button {
+  border-radius: 0.7rem;
+  padding: 0.5rem 1rem;
+  margin: 1rem 0.25rem;
+  font-size: 1rem;
+  border: none;
+  transition: background-color 0.2s ease;
+}
+
+.timer-buttons .start {
 }
 
 .habit-container {
@@ -135,7 +246,7 @@ h2 {
   text-align: center;
 }
 
-.tracker-grid {
+.habit-grid {
   display: grid;
   grid-template-columns: 1.5fr repeat(7, 1fr);
   align-items: center;
@@ -157,15 +268,19 @@ h2 {
   display: none;
 }
 
-.custom-checkbox span {
+.custom-checkbox span,
+.task-item span {
   display: inline-block;
-  width: 1rem;
-  height: 1rem;
   border: 1px solid #555;
-  border-radius: 50%;
   background-color: #fff;
   transition: all 0.3s ease;
   position: relative;
+}
+
+.custom-checkbox span {
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
 }
 
 .custom-checkbox input[type="checkbox"]:checked + span {
