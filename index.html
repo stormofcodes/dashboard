@@ -9,7 +9,7 @@
 <body>
     <div class="wrapper">
         <div class="header">
-            <span class="current-date">20 May 2025</span>
+            <h1>Today's overview</h1>
         </div>
         <div class="sidebar">
             <nav>
@@ -25,6 +25,12 @@
         <div class="container">
             <div class="main-left">
 
+            <div class="date-container">
+                <p class="weekday">Tuesday</p>
+                <h2 class="date">21</h2>
+                <p class="month">May 2025</p>
+                <p class="date-quote"><em>Stay in the present</em></p>
+            </div>
             <div class="task-container">
                 <h2></h2>
                  <ul class="task-list">
@@ -51,15 +57,23 @@
             <div class="quote"><p>This is very motivational indeed</p>
                                <p>- Someone</p></div>
             <div class="timer-container">
-                <h2>25:00</h2>
-                <div class="timer-task"><p>Start reading</p></div>
+                <h2>Focus timer</h2>
+                <p class="countdown">25:00</p>
+                <label for="intention">Your Focus:</label>
+                <input 
+                type="text" 
+                id="intention" 
+                name="intention" 
+                maxlength="15" 
+                placeholder="Write your intention..." />
+                <div class="timer-buttons">
                 <button class="start">START</button>
-                <button class="pause">P</button>
                 <button class="reset">RESET</button>
+                </div>
             </div>
             <div class="habit-container">
             <h2>Habit Tracker</h2>
-            <div class="tracker-grid">
+            <div class="habit-grid">
                 <div class="habit-name"></div>
                 <div class="day">M</div>
                 <div class="day">T</div>
