@@ -11,65 +11,116 @@
         <div class="header">
             <span class="current-date">20 May 2025</span>
         </div>
-
+        <div class="sidebar">
+            <nav>
+                <ul>
+                    <li>*</li>
+                    <li>*</li>
+                    <li>*</li>
+                    <li>*</li>
+                    <li>*</li>
+                </ul>
+            </nav>
+        </div>
         <div class="container">
-            <div class="habit-container">
-                <h2>Daily Habits</h2>
-                <ul class="habit-list">
+            <div class="main-left">
+
+            <div class="task-container">
+                <h2></h2>
+                 <ul class="task-list">
                     <li>
-                        <label class="habit-item">
-                            Meditate
-                            <input type="checkbox" name="">
+                        <label class="task-item">
+                            <input type="checkbox" name=""><span></span>
+                            Morning run
                         </label>
                     </li>
                     <li>
-                        <label class="habit-item">
-                            Drink water
-                            <input type="checkbox" name="">
+                        <label class="task-item">
+                            <input type="checkbox" name=""><span></span>
+                            Read for 30 minutes
                         </label>
                     </li>
                     <li>
-                        <label class="habit-item">
-                            Move dat booty
-                            <input type="checkbox" name="">
+                        <label class="task-item">
+                            <input type="checkbox" name=""><span></span>
+                            Finish one Odin lesson
                         </label>
                     </li>
                 </ul>
             </div>
-            <div class="mood-container">
-                <form class="mood-selector">
-                    <h2>Mood check</h2>
-                    <label>
-                        <input type="radio" name="mood" value="happy" />
-                        😄
-                    </label>
-                    <label>
-                        <input type="radio" name="mood" value="ok" />
-                        🙂
-                    </label>
-                    <label>
-                        <input type="radio" name="mood" value="neutral" />
-                        😐
-                    </label>
-                    <label>
-                        <input type="radio" name="mood" value="sad" />
-                        😞
-                    </label>
-                    <label>
-                        <input type="radio" name="mood" value="angry" />
-                        😡
-                    </label>
-                </form>
+            <div class="quote"><p>This is very motivational indeed</p>
+                               <p>- Someone</p></div>
+            <div class="timer-container">
+                <h2>25:00</h2>
+                <div class="timer-task"><p>Start reading</p></div>
+                <button class="start">START</button>
+                <button class="pause">P</button>
+                <button class="reset">RESET</button>
             </div>
-            <div class="affirm-container">
-                Affirm this yeeeeeeeeeeeees
+            <div class="habit-container">
+            <h2>Habit Tracker</h2>
+            <div class="tracker-grid">
+                <div class="habit-name"></div>
+                <div class="day">M</div>
+                <div class="day">T</div>
+                <div class="day">W</div>
+                <div class="day">T</div>
+                <div class="day">F</div>
+                <div class="day">S</div>
+                <div class="day">S</div>
+
+                <div class="habit-item">Drink water</div>
+                <label class="custom-checkbox"><input type="checkbox" /><span></span></label>
+                <label class="custom-checkbox"><input type="checkbox" /><span></span></label>
+                <label class="custom-checkbox"><input type="checkbox" /><span></span></label>
+                <label class="custom-checkbox"><input type="checkbox" /><span></span></label>
+                <label class="custom-checkbox"><input type="checkbox" /><span></span></label>
+                <label class="custom-checkbox"><input type="checkbox" /><span></span></label>
+                <label class="custom-checkbox"><input type="checkbox" /><span></span></label>
+
+                <div class="habit-item">Meditate</div>
+                <label class="custom-checkbox"><input type="checkbox" /><span></span></label>
+                <label class="custom-checkbox"><input type="checkbox" /><span></span></label>
+                <label class="custom-checkbox"><input type="checkbox" /><span></span></label>
+                <label class="custom-checkbox"><input type="checkbox" /><span></span></label>
+                <label class="custom-checkbox"><input type="checkbox" /><span></span></label>
+                <label class="custom-checkbox"><input type="checkbox" /><span></span></label>
+                <label class="custom-checkbox"><input type="checkbox" /><span></span></label>
+
+                <div class="habit-item">Move dat booty</div>
+                <label class="custom-checkbox"><input type="checkbox" /><span></span></label>
+                <label class="custom-checkbox"><input type="checkbox" /><span></span></label>
+                <label class="custom-checkbox"><input type="checkbox" /><span></span></label>
+                <label class="custom-checkbox"><input type="checkbox" /><span></span></label>
+                <label class="custom-checkbox"><input type="checkbox" /><span></span></label>
+                <label class="custom-checkbox"><input type="checkbox" /><span></span></label>
+                <label class="custom-checkbox"><input type="checkbox" /><span></span></label>
             </div>
+        </div>
             <div class="graph-container">
-                graphsss
+                graphsss heeeeeeeere
             </div>
-            <div class="gratitude-container">
-                gratitude
+        </div>
+
+        <div class="main-right">
+            <div class="motivation-center">
+                <h2>Motivation center</h2>
+                <div>
+                    <p>Remember your why</p>
+                </div>
+                <div>
+                    <p>Voice note</p>
+                </div>
+                <div>
+                    <p>If you believe, youre halfway there</p>
+                </div>
             </div>
+
+            <div class="brain-dump">
+                <label for="dump">Brain Dump:</label>
+                <textarea id="dump" name="dump" placeholder="Dump it all out..."></textarea>
+            </div>
+        </div>
         </div>
     </div>
     
