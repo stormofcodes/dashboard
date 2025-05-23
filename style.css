@@ -9,12 +9,13 @@
 :root {
   --main-font: 'Manrope', sans-serif;
 
-  --primary-clr: #d16a5a;
-  --secondary-clr: #193a39;
-  --accent-clr: #f4c430;
-  --scd-accent-clr: #3ddad7;
-  --bg-clr: #0f2b2a; /*background clr*/
-  --text-clr: #ffffff;
+  --primary-clr: #8a1c0b;
+  --bg-clr: #0000005e; /*CONTAINER bg*/
+  --secondary-clr: #410f0b;
+  --accent-clr: #d1b057;
+  --xtra-accent-clr: #7ec7c6; 
+  --bg-body: #002721; /*background clr*/
+  --text-clr: #ceba8e;
 
   --shadow-soft:
     0 1px 2px rgba(0, 0, 0, 0.06),
@@ -23,7 +24,7 @@
   --sm-padding: 20px;
   --lg-gap: 20px;
 
-  --border-soft: 0.5rem;
+  --border-soft: 2rem;
 
 }
 
@@ -33,19 +34,34 @@
   box-sizing: border-box;
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 html, body {
   height: 100%;
 }
 
+body {
+  display: grid;
+  place-items: center;
+  background-color: var(--bg-body);
+}
+
 .wrapper {
   display: grid;
+  box-sizing: border-box;
   grid-template-areas: 
   "sidebar header"
   "sidebar container";
   grid-template-columns: auto 1fr;
   grid-template-rows: auto 1fr;
-  height: 100vh;
+  border-radius: var(--border-soft);
   font-family: var(--main-font);
+  color: var(--text-clr);
+  background-color: var(--bg-clr);
+  margin: 1rem;
+  min-height: calc(100vh - 2rem);
 }
 
 .header {
@@ -54,7 +70,7 @@ html, body {
   justify-content: start;
   align-items: center;
   height: clamp(50px, 10vh, 120px);
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0);
   padding: 0 4vh;
   font-size: 1.2rem;
   font-weight: 600;
@@ -67,6 +83,8 @@ html, body {
   align-items: start;
   justify-content: center;
   margin-top: 1rem;
+  background-color: #220000;
+  border-radius: var(--border-soft);
 }
 
 .sidebar nav ul {
@@ -84,7 +102,7 @@ html, body {
 
 .container {
   grid-area: container;
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(118, 209, 26, 0);
   padding: 20px;
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -107,12 +125,12 @@ html, body {
   grid-column: 2 / 3;
   display: flex;
   flex-direction: column;
-  gap: var(--lg-gap)
+  gap: var(--lg-gap);
 }
 
 .main-left > *,
 .main-right > * {
-  background-color: rgb(255, 255, 255);
+  background-color: var(--secondary-clr);
   border-radius: var(--border-soft);
   box-shadow: var(--shadow-soft);
   padding: var(--sm-padding);
@@ -181,8 +199,8 @@ h2 {
 
 .task-item span {
   border-radius: 0.4rem;
-  width: 1.3rem;
-  height: 1.3rem;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .task-item input:checked + span {
@@ -242,7 +260,7 @@ h2 {
   padding: 0.5rem 1rem;
   font-size: 1.2rem;
   box-sizing: border-box;
-  background-color: aliceblue;
+  background-color: rgba(240, 248, 255, 0);
 }
 
 .timer-buttons button {
@@ -255,6 +273,7 @@ h2 {
 }
 
 .timer-buttons .start {
+  background-color: var(--primary-clr);
 }
 
 .bottom-left {
@@ -262,12 +281,13 @@ h2 {
   box-shadow: none;
   grid-area: bottom-l;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: auto auto;
   gap: var(--lg-gap);
+  background-color: #4caf4f00;
 }
 
 .bottom-left > * {
-  background-color: rgb(255, 255, 255);
+  background-color: var(--secondary-clr);
   border-radius: var(--border-soft);
   box-shadow: var(--shadow-soft);
   padding: var(--sm-padding);
@@ -308,16 +328,16 @@ h2 {
 
 .day {
   font-weight: 600;
-  color: #444;
-  background-color: #eaeaea;
+  color: var(--text-clr);
+  background-color: var(--primary-clr);
   padding: 0.5rem;
   border-radius: 6px;
   text-align: center;
 }
 
 .day.today {
-  background-color: #4caf50;
-  color: white;
+  background-color: var(--xtra-accent-clr);
+  color: var(--text-clr);
   font-weight: bold;
   box-shadow: 0 0 10px rgba(0,0,0,0.15);
 }
@@ -334,10 +354,15 @@ h2 {
 .custom-checkbox span,
 .task-item span {
   display: inline-block;
-  border: 1px solid #555;
-  background-color: #fff;
+  border: 1px solid var(--accent-clr);
+  background-color: #ffffff00;
   transition: all 0.3s ease;
   position: relative;
+}
+
+.custom-checkbox span {
+  border: 1px solid var(--text-clr);
+  background-color: ;
 }
 
 .custom-checkbox span {
@@ -351,10 +376,6 @@ h2 {
   border-color: #4caf50;
 }
 
-.main-right {
- display: grid;
-}
-
 .motivation-center {
   max-width: 600px;
 }
@@ -364,7 +385,7 @@ h2 {
 }
 
 .reminder {
-  background-color: #f5f5f5;
+  background-color: var(--primary-clr);
   border-radius: 12px;
   padding: 1rem;
   margin-bottom: 0.75rem;
@@ -375,7 +396,6 @@ h2 {
   margin: 0;
   font-size: 1rem;
 }
-
 
 .brain-dump {
   display: flex;
@@ -390,7 +410,7 @@ h2 {
 
 .brain-dump textarea {
   min-height: 20vh;
-  border: 1px solid #ccc;
+  border: 1px solid var(--accent-clr);
   border-radius: 12px;
   padding: 1rem;
   font-size: 1rem;
