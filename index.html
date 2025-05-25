@@ -3,36 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZenAF</title>
+    <title>Foculon</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="img/favicon-dash.svg">
 </head>
 <body>
     <div class="wrapper">
         <div class="header">
             <h1>Today's overview</h1>
+              <div class="search-wrapper">
+                <i data-lucide="search" class="search-icon"></i>
+                <input type="search" placeholder="Search..." />
+                </div>
         </div>
         <div class="sidebar">
-            <nav>
+            <nav class="sidebar-nav">
                 <ul>
-                    <li>*</li>
-                    <li>*</li>
-                    <li>*</li>
-                    <li>*</li>
-                    <li>*</li>
+                    <li class="active"><i data-lucide="home"></i></li>
+                    <li><i data-lucide="calendar"></i></li>
+                    <li><i data-lucide="circle-check-big"></i></li>
+                    <li><i data-lucide="layout-list"></i></li>
+                    <li><i data-lucide="chart-no-axes-combined"></i></li>
                 </ul>
+                <div class="bottom-icon">
+                    <a href="https://github.com/stormofcodes" target="_blank">
+                    <img src="img/github-mark-white.png" alt="GitHub" class="github-icon">
+                    </a>
+                    <i data-lucide="settings"></i>
+                </div>
             </nav>
         </div>
         <div class="container">
             <div class="main-left">
 
-            <div class="date-container">
+            <div class="date-container hover-container">
                 <p class="weekday">Thursday</p>
                 <h2 class="date">21</h2>
                 <p class="month">JUNE</p>
                 <p class="date-quote"></p>
             </div>
-            <div class="task-container">
+            <div class="task-container hover-container">
                 <h2>Tasks</h2>
+                 <i data-lucide="ellipsis-vertical"></i>
                  <ul class="task-list">
                     <li>
                         <label class="task-item">
@@ -55,9 +67,12 @@
                 </ul>
             </div>
             <div class="quote"><p>You’re becoming the version of us I always knew you could be.</p>
-                               <p>Your future self</p></div>
-            <div class="timer-container">
+                               <p>Your future self</p>
+                                 <img src="/img/branch20.svg" alt="Decorative branch" class="branch" />
+                                </div>
+            <div class="timer-container hover-container">
                 <h2>Focus timer</h2>
+                <i data-lucide="bell-plus"></i>
                 <p class="countdown">25:00</p>
                 <label for="intention">Your Focus:</label>
                 <input 
@@ -75,11 +90,16 @@
             <div class="bottom-left">
 
             <div class="graph-container">
-                graphsss heeeeeeeere
+                <div class="graph-video"><video autoplay muted class="video-bg">
+                <source src="/img/chart.mp4" type="video/mp4">
+                Your browser is blah will not play cool videooh
+                </video></div>
+                <i data-lucide="chevron-down"></i>
             </div>
 
-            <div class="habit-container">
+            <div class="habit-container hover-container">
             <h2>Habit Tracker</h2>
+            <i data-lucide="list-plus"></i>
             <div class="habit-grid">
             <div class="habit-name">HABITS</div>
             <div class="day">M</div>
@@ -150,8 +170,9 @@
 
             <div class="main-right">
 
-            <div class="motivation-center">
+            <div class="motivation-center hover-container">
             <h2>Goals & Reminders</h2>
+            <i data-lucide="chevron-down"></i>
 
             <div class="reminder">
             <p>Remember your why</p>
@@ -167,13 +188,17 @@
             </div>
             </div>
 
-            <div class="brain-dump">
+            <div class="brain-dump hover-container">
                 <label for="dump">Brain Dump:</label>
                 <textarea id="dump" name="dump" placeholder="Dump it all out..."></textarea>
             </div>
             </div>
         </div>
     </div>
-    
+
+<script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
 </html>
