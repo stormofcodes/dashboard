@@ -25,3 +25,22 @@ const startMidnightWatcher = () => {
 
 updateDate();
 startMidnightWatcher();
+
+document.addEventListener("DOMContentLoaded", () => {
+    const currentDayIndex = new Date().getDay();
+
+    const dayHeaders = document.querySelectorAll(".habit-grid .day");
+    dayHeaders[currentDayIndex].classList.add("active-day");
+
+    const checkboxes = document.querySelectorAll(".habit-grid .custom-checkbox");
+
+    checkboxes.forEach((checkbox, index) => {
+        const col = index % 7;
+        if (col !== currentDayIndex) {
+            checkbox.querySelector("input").disabled = true;
+            checkbox.classList.add("inactive-day");
+            checkbox.style.opacity = "0.4"
+            checkbox.style.cursor = "default"
+        }
+    });
+});
