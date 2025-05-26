@@ -59,6 +59,7 @@ body {
   border-radius: var(--border-soft);
   font-family: var(--main-font);
   color: var(--text-clr);
+  caret-color: var(--accent-clr);
   background-color: var(--bg-clr);
   margin: 0rem 4rem;
   margin-top: 1rem;
@@ -71,7 +72,8 @@ body {
   justify-content: space-between;
   align-items: center;
   background-color: rgba(255, 255, 255, 0);
-  color: var(--green);
+  color: var(--text-clr);
+  opacity: 0.5;
   padding: 0 4vh;
   font-size: 1.1rem;
   font-weight: 600;
@@ -268,20 +270,28 @@ h2 {
 
 .task-item span {
   position: relative;
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
   border-radius: 0.4rem;
-  min-width: 1.5rem;
-  min-height: 1.5rem;
-  border: 2px solid var(--accent-clr);
   cursor: pointer;
-  transition: transform 0.3s ease;
 }
 
-.task-item input:checked + span {
+.box-inner {
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--accent-clr);
+  transition: transform 0.3s ease, border 0.3s ease;
+  border-radius: 0.4rem;
+}
+
+.task-item span:hover .box-inner {
+  transform: rotate(90deg) scale(1.08);
+  border: 3px solid var(--accent-clr);
+}
+
+.task-item input:checked + span .box-inner {
   border: 2px solid var(--dark-yellow);
-}
-
-.task-item span:hover {
-  transform: scale(1.08) rotate(-1deg);
 }
 
 .task-item span::after {
@@ -488,7 +498,7 @@ h2 {
   text-align: center;
 }
 
-.day.today {
+.active-day {
   background-color: var(--xtra-accent-clr);
   color: var(--text-clr);
   font-weight: bold;
@@ -516,13 +526,18 @@ h2 {
   border-radius: 50%;
   width: 1.5rem;
   height: 1.5rem;
-  border: 1px solid var(--mint);
+  border: 2px solid var(--mint);
   transition: transform 0.2s ease;
 }
 
 .custom-checkbox:hover span {
-  transform: scale(1.04);
-  border: 2px solid var(--mint);
+  transform: scale(1.05);
+  border: 3px solid var(--mint);
+}
+
+.inactive-day.custom-checkbox:hover span {
+  transform: none;
+  border: 2px solid #8cdaa3bb;
 }
 
 .custom-checkbox input[type="checkbox"]:checked + span {
